@@ -34,3 +34,24 @@ either way (if its a known or new User) it gonna takes that user, grabs the id f
 stuffs it in a cookie, encrypts it and sends it to the browser.
 
 And when the browser makes any subsequent requests, it gonna sends along the encrypted cookie with it, on the server its gonna be de-encrypted, then the user can be deserialized by grabbing the id and associating it with a user in the db, so that we know then what user is associated in the session - in other words: who is logged in.
+
+---
+
+Missing 'config/keys.js'
+
+```sh
+module.exports = {
+  google: {
+    clientID:
+      'XXX',
+    clientSecret: 'XXX',
+  },
+  mongodb: {
+    dbURI:
+      'mongodb+srv://<username>:<password>@<dbName...',
+  },
+  session: {
+    cookieKey: 'randomString',
+  },
+};
+```
