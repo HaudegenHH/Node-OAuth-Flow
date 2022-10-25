@@ -2,7 +2,7 @@ const router = require('express').Router();
 const passport = require('passport');
 
 router.get('/login', (req, res) => {
-  res.render('login');
+  res.render('login', { user: req.user });
 });
 
 router.get('/logout', (req, res) => {
@@ -21,7 +21,8 @@ router.get('/google', passport.authenticate('google', { scope: ['profile'] }));
 // you want to exchange the code for profile information which passport does for
 // you in the background)
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-  res.send('You reached the callback URI');
+  // res.send(req.user);
+  res.redirect('/profile/');
 });
 
 module.exports = router;
